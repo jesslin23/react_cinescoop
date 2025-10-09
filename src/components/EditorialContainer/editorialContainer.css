@@ -1,0 +1,132 @@
+.editorial-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #30211B;
+    text-align: center;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 20px;
+    position: relative;
+  }
+  
+  .editorials {
+    background-color: black;
+    padding-top: 85px;
+  }
+  
+  img {
+    height: 400px;
+    width: 450px;
+  }
+  
+  .editorials > h2 {
+    font-family: 'Qwitcher Grypen', cursive;
+    text-align: center;
+    font-size: 40px;
+    background-color: black;
+    color: #BDA78D;
+  }
+  
+  .editorial-container > h2 {
+    color: #BDA78D;
+  }
+  
+  .editorial-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .read-more-button {
+    background-color: #BDA78D;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 200ms ease-in-out;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+  
+  .read-more-button:hover {
+    background-color: #9a7a55;
+    transform: scale(1.05);
+  }
+  
+  .editorial-detail {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 1rem;
+  }
+  
+  /* Interaction Section Styling */
+  .interaction-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .like-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .like-button {
+    background-color: #BDA78D;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .like-button:hover {
+    background-color: #9a7a55;
+  }
+  
+  .like-count {
+    color: white;
+    font-weight: bold;
+  }
+  
+  .comment-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .comment-input {
+    width: 250px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+  }
+  
+  .add-comment-button {
+    background-color: #BDA78D;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+
+  }
+  
+  .add-comment-button:hover {
+    background-color: #9a7a55;
+  }
+  
+  .comments {
+    margin-top: 5px;
+  }
+  
+  .comment-text {
+    color: white;
+  }
+  

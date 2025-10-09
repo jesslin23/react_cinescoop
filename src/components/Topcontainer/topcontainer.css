@@ -1,0 +1,6 @@
+.topcontainer{
+    background-image: url(../../../src/images/bg3.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}

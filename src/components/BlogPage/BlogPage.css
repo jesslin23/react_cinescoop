@@ -1,0 +1,231 @@
+.blog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: black; /* Dark background to match the theme */
+  font-family: "Quicksand", sans-serif;
+}
+
+h1 {
+  font-family: "Qwitcher Grypen", cursive;
+  color: #BDA78D;
+  padding: 50px;
+  font-size: 40px;
+}
+
+.blogList>h2{
+  font-family: "Qwitcher Grypen", cursive;
+  color: #BDA78D;
+  font-size: 40px;
+}
+
+.blogPage {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.blogList {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: flex-start;
+  width: 58%; 
+}
+
+p {
+  color: white;
+}
+
+.addBlogSection {
+  height: 28%;
+  width: 28%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Quicksand", sans-serif;
+}
+
+
+.blogItem {
+  background-color: #30211B;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-right: 10px; 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: calc(33% - 10px);
+  text-align: center;
+  display: flex;
+  flex-direction: column; 
+  margin-left: 15px;
+}
+
+.blogItem img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px; 
+}
+
+.blogItem h3 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 10px 0 5px; /* Space around the title */
+}
+
+.blogItem p {
+  font-size: 0.9rem;
+  color: #ddd; /* Light text for readability */
+  margin: 5px 0; /* Space around the content */
+}
+
+.blogItem .genre {
+  font-weight: bold; /* Bold genre text */
+}
+
+/* Adjustments for Add Blog section inputs */
+.addBlogSection>h2{
+  font-family: "Qwitcher Grypen", cursive;
+  color: #BDA78D;
+  font-size: 40px;
+}
+.addBlogSection input,
+.addBlogSection textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 400;
+}
+
+.addBlogSection button {
+  padding: 10px 20px;
+  background-color: #BDA78D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+}
+
+.addBlogSection button:hover {
+  background-color: #987d5d;
+  transform: scale(1.05);
+}
+
+/* Watchlist section */
+.watchlist {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  font-family: "Quicksand", sans-serif;
+  justify-content: center;
+}
+
+.watchlisttitle>h2{
+  font-family: "Qwitcher Grypen", cursive;
+  color: #BDA78D;
+  font-size: 40px;
+}
+
+
+.watchlistItem {
+  flex-direction: column;
+  align-items: center;
+  background-color: #30211B;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  margin-left: 20px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.watchlistItem img {
+  width: 100%; /* Full width for watchlist images */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Rounded corners for the image */
+}
+
+.watchlistItem h3,
+.watchlistItem p {
+  text-align: center;
+  color: #fff;
+  margin: 5px 0;
+  font-family: "Quicksand", sans-serif;
+}
+
+/* Add to Watchlist Button */
+.addToWatchlistBtn {
+  background-color: #BDA78D; /* Green background */
+  color: white; /* White text */
+  padding: 10px 15px; /* Some padding */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover */
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 10px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+}
+
+.addToWatchlistBtn:hover {
+  background-color: #987d5d; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+.addToWatchlistBtn:active {
+  transform: scale(0.95); /* Shrink button on click */
+}
+
+/* Remove from Watchlist Button */
+.removeFromWatchlistBtn {
+  background-color: #BDA78D; /* Red background */
+  color: white; /* White text */
+  padding: 10px 15px; /* Some padding */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.3s, transform; /* Smooth transition for hover */
+  font-weight: 600;
+}
+
+.removeFromWatchlistBtn:hover {
+  background-color: #987d5d; /* Darker red on hover */
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .blogPage {
+    flex-direction: column; /* Stack sections vertically on small screens */
+  }
+
+  .blogList,
+  .addBlogSection {
+    width: 100%; /* Full width for both sections */
+  }
+
+  .addBlogSection {
+    margin-top: 20px; /* Add space above Add Blog section */
+  }
+
+  .blogItem {
+    max-width: 100%; /* Full width for blog items on small screens */
+    margin-right: 0; /* Remove right margin */
+  }
+}

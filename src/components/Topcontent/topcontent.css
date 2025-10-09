@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+/* Container for the countdown section */
+.topcontent {
+    padding-top: 185px;
+    color: #fff;
+    text-align: center;
+    min-height: 50vh; /* Adjust height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Inner box where countdown and text is placed */
+.topcontent_sub {
+    border-top: 2px solid #BDA78D;
+    border-bottom: 2px solid #BDA78D;
+    padding: 20px 50px;
+    margin: 0 auto;
+    width: 70%;
+    border-radius: 10px;
+    transition: transform 300ms ease-in-out;
+}
+
+.topcontent_sub:hover {
+    transform: scale(1.02); /* Slight hover zoom effect */
+}
+
+/* Title text style */
+.topcontent_sub > h4 {
+    text-align: center;
+    font-family: 'Qwitcher Grypen', cursive;
+    font-size: 34px;
+    color: #BDA78D; /* Gold highlight */
+    padding-bottom: 20px;
+}
+
+/* Countdown container */
+.countdown {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    color: #FFF;
+    padding: 15px;
+    background-color: rgba(189, 167, 141, 0.1); /* Slightly transparent background */
+    border-radius: 5px;
+}
+
+/* Each time unit (days, hours, minutes, seconds) */
+.countdown span {
+    color: #BDA78D; /* Gold color for countdown numbers */
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: transform 300ms ease-in-out;
+}
+
+/* Hover effect on countdown numbers */
+.countdown span:hover {
+    transform: scale(1.1); /* Slight scale effect */
+    color: #614337; /* Changes to white on hover */
+}
