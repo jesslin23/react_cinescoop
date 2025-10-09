@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/react_cinescoop/static/css/main.2dca3d1e.css",
+    "main.js": "/react_cinescoop/static/js/main.a0af2bc1.js",
+    "static/js/453.5e560239.chunk.js": "/react_cinescoop/static/js/453.5e560239.chunk.js",
+    "static/media/m5.webp": "/react_cinescoop/static/media/m5.64f9573a004ae3143ba1.webp",
+    "static/media/m1.jpg": "/react_cinescoop/static/media/m1.8c706f600d2c74939e42.jpg",
+    "static/media/bg3.jpeg": "/react_cinescoop/static/media/bg3.eb8ccf1bb8ab68cf0f10.jpeg",
+    "static/media/m4.jpg": "/react_cinescoop/static/media/m4.59d9ea309a8b5925dc1a.jpg",
+    "static/media/m2.jpg": "/react_cinescoop/static/media/m2.5d9f14a2b3263badc452.jpg",
+    "static/media/m8.jpg": "/react_cinescoop/static/media/m8.f347c111b8638e7dddf1.jpg",
+    "static/media/m7.jpg": "/react_cinescoop/static/media/m7.e65538225cc982073a7f.jpg",
+    "static/media/m3.jpg": "/react_cinescoop/static/media/m3.b46db6b2e44e067cb9ce.jpg",
+    "static/media/i2.jpeg": "/react_cinescoop/static/media/i2.95444e0d23cc4774bceb.jpeg",
+    "static/media/i1.avif": "/react_cinescoop/static/media/i1.756ef301762ba85b390d.avif",
+    "static/media/i3.avif": "/react_cinescoop/static/media/i3.afc89dde6184a5cc5db8.avif",
+    "index.html": "/react_cinescoop/index.html",
+    "main.2dca3d1e.css.map": "/react_cinescoop/static/css/main.2dca3d1e.css.map",
+    "main.a0af2bc1.js.map": "/react_cinescoop/static/js/main.a0af2bc1.js.map",
+    "453.5e560239.chunk.js.map": "/react_cinescoop/static/js/453.5e560239.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2dca3d1e.css",
+    "static/js/main.a0af2bc1.js"
+  ]
+}
