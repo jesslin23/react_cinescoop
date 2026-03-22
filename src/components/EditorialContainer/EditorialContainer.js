@@ -13,14 +13,14 @@ const EditorialContainer = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
-    fetch("http://localhost:8000/editorials")
+    fetch("https://react-cinescoop.onrender.com/editorials")
       .then(res => res.json())
       .then(data => setEditorials(data));
   }, []);
 
   // LOAD COMMENTS
   const loadComments = async (id) => {
-    const res = await fetch(`http://localhost:8000/editorials/${id}/comments`);
+    const res = await fetch(`https://react-cinescoop.onrender.com/editorials/${id}/comments`);
     const data = await res.json();
 
     setComments(prev => ({
@@ -44,7 +44,7 @@ const EditorialContainer = () => {
   // LIKE
   const handleLike = async (id) => {
 
-    await fetch(`http://localhost:8000/editorials/${id}/like`, {
+    await fetch(`https://react-cinescoop.onrender.com/editorials/${id}/like`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -54,7 +54,7 @@ const EditorialContainer = () => {
       })
     });
 
-    fetch("http://localhost:8000/editorials")
+    fetch("https://react-cinescoop.onrender.com/editorials")
       .then(res => res.json())
       .then(data => setEditorials(data));
   };
@@ -65,7 +65,7 @@ const EditorialContainer = () => {
     const text = inputs[id];
     if (!text) return;
 
-    await fetch(`http://localhost:8000/editorials/${id}/comments`, {
+    await fetch(`https://react-cinescoop.onrender.com/editorials/${id}/comments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -83,7 +83,7 @@ const EditorialContainer = () => {
   // DELETE COMMENT
   const handleDelete = async (commentIndex, editorialId) => {
 
-    await fetch(`http://localhost:8000/comments/${commentIndex}`, {
+    await fetch(`https://react-cinescoop.onrender.com/comments/${commentIndex}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"

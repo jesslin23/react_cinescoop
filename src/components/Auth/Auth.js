@@ -9,8 +9,8 @@ const Auth = () => {
 
   const handleSubmit = async () => {
     const url = isLogin
-      ? "http://127.0.0.1:8000/login"
-      : "http://127.0.0.1:8000/register";
+      ? "https://react-cinescoop.onrender.com/login"
+      : "https://react-cinescoop.onrender.com/register";
 
     const bodyData = isLogin
       ? { email, password }

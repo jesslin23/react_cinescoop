@@ -17,7 +17,7 @@ const BlogPage = () => {
 
   // LOAD BLOGS
   useEffect(() => {
-    fetch("http://localhost:8000/blogs")
+    fetch("https://react-cinescoop.onrender.com/blogs")
       .then(res => res.json())
       .then(data => setBlogs(data));
   }, []);
@@ -25,7 +25,7 @@ const BlogPage = () => {
   // LOAD WATCHLIST (FIXED WARNING)
   useEffect(() => {
     if (user?.username) {
-      fetch(`http://localhost:8000/watchlist/${user.username}`)
+      fetch(`https://react-cinescoop.onrender.com/watchlist/${user.username}`)
         .then(res => res.json())
         .then(data => setWatchlist(data));
     }
@@ -36,7 +36,7 @@ const BlogPage = () => {
 
     if (!newBlog.title || !newBlog.content || !newBlog.genre) return;
 
-    await fetch("http://localhost:8000/blogs", {
+    await fetch("https://react-cinescoop.onrender.com/blogs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -50,7 +50,7 @@ const BlogPage = () => {
     setNewBlog({ title: '', content: '', genre: '', image: null });
 
     // reload blogs
-    fetch("http://localhost:8000/blogs")
+    fetch("https://react-cinescoop.onrender.com/blogs")
       .then(res => res.json())
       .then(data => setBlogs(data));
   };
@@ -71,7 +71,7 @@ const BlogPage = () => {
   // ADD TO WATCHLIST
   const addToWatchlist = async (blog) => {
 
-    await fetch(`http://localhost:8000/watchlist/${user.username}`, {
+    await fetch(`https://react-cinescoop.onrender.com/watchlist/${user.username}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -79,7 +79,7 @@ const BlogPage = () => {
       body: JSON.stringify(blog)
     });
 
-    fetch(`http://localhost:8000/watchlist/${user.username}`)
+    fetch(`https://react-cinescoop.onrender.com/watchlist/${user.username}`)
       .then(res => res.json())
       .then(data => setWatchlist(data));
   };
@@ -87,7 +87,7 @@ const BlogPage = () => {
   // REMOVE FROM WATCHLIST
   const removeFromWatchlist = async (blog) => {
 
-    await fetch(`http://localhost:8000/watchlist/${user.username}/remove`, {
+    await fetch(`https://react-cinescoop.onrender.com/watchlist/${user.username}/remove`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -95,7 +95,7 @@ const BlogPage = () => {
       body: JSON.stringify(blog)
     });
 
-    fetch(`http://localhost:8000/watchlist/${user.username}`)
+    fetch(`https://react-cinescoop.onrender.com/watchlist/${user.username}`)
       .then(res => res.json())
       .then(data => setWatchlist(data));
   };
