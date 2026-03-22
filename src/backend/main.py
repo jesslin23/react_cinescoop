@@ -14,7 +14,7 @@ app.add_middleware(
 
 # ================= MONGODB =================
 
-client = MongoClient("mongodb+srv://jesslin2324_db_user:DXdBT359JXTNGEyK@cluster0.fm4ty3d.mongodb.net/?appName=Cluster0")
+client = MongoClient("mongodb+srv://jesslin2324_db_user:DXdBT359JXTNGEyK@cluster0.fm4ty3d.mongodb.net/blog_app?retryWrites=true&w=majority")
 
 db = client["blog_app"]
 
