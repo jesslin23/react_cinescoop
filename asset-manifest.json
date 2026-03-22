@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react_cinescoop/static/css/main.e0701c70.css",
-    "main.js": "/react_cinescoop/static/js/main.ff5cd7e6.js",
+    "main.css": "/react_cinescoop/static/css/main.8a3e2d3c.css",
+    "main.js": "/react_cinescoop/static/js/main.14363917.js",
     "static/js/453.5e560239.chunk.js": "/react_cinescoop/static/js/453.5e560239.chunk.js",
     "static/media/m5.webp": "/react_cinescoop/static/media/m5.64f9573a004ae3143ba1.webp",
     "static/media/m1.jpg": "/react_cinescoop/static/media/m1.8c706f600d2c74939e42.jpg",
@@ -12,12 +12,12 @@
     "static/media/m7.jpg": "/react_cinescoop/static/media/m7.e65538225cc982073a7f.jpg",
     "static/media/m3.jpg": "/react_cinescoop/static/media/m3.b46db6b2e44e067cb9ce.jpg",
     "index.html": "/react_cinescoop/index.html",
-    "main.e0701c70.css.map": "/react_cinescoop/static/css/main.e0701c70.css.map",
-    "main.ff5cd7e6.js.map": "/react_cinescoop/static/js/main.ff5cd7e6.js.map",
+    "main.8a3e2d3c.css.map": "/react_cinescoop/static/css/main.8a3e2d3c.css.map",
+    "main.14363917.js.map": "/react_cinescoop/static/js/main.14363917.js.map",
     "453.5e560239.chunk.js.map": "/react_cinescoop/static/js/453.5e560239.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e0701c70.css",
-    "static/js/main.ff5cd7e6.js"
+    "static/css/main.8a3e2d3c.css",
+    "static/js/main.14363917.js"
   ]
 }
