@@ -1,6 +1,24 @@
-.topcontainer{
+.topcontainer {
     background-image: url(../../../src/images/bg3.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    background-position: center; /* ensures image stays centered */
+}
+
+/* Responsive adjustments */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .topcontainer {
+        height: 80vh; /* slightly shorter for smaller screens */
+    }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+    .topcontainer {
+        height: 60vh; /* reduces height for phones */
+        background-position: center top; /* keeps main content visible */
+    }
 }

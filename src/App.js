@@ -5,15 +5,25 @@ import Nowplaying from './components/Nowplaying/nowplaying'
 import BlogPage from './components/BlogPage/BlogPage'
 import Footer from './components/Footer/footer'
 import EditorialContainer from './components/EditorialContainer/EditorialContainer'
+import Auth from './components/Auth/Auth'
+
 const App = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   return (
     <div>
-      <Header />
-      <Topcontainer />
-      <Nowplaying />
-      <EditorialContainer />
-      <BlogPage />
-      <Footer />
+      {user ? (
+        <>
+          <Header />
+          <Topcontainer />
+          <Nowplaying />
+          <EditorialContainer />
+          <BlogPage />
+          <Footer />
+        </>
+      ) : (
+        <Auth />
+      )}
     </div>
   )
 }

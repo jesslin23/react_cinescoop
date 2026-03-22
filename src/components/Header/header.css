@@ -1,81 +1,146 @@
 @import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-.header{
-    display:flex;
+
+.header {
+    display: flex;
     color: white;
     background-color: #30211B;
     top: 0;
     position: sticky;
     align-items: center;
     z-index: 2000;
+    justify-content: space-between;
+    padding: 0 15px;
 }
 
-.header_left{
+.header_left {
     flex: 0.4;
 }
 
-.header_left>h1{
+.header_left > h1 {
     padding: 20px 0;
     text-align: center;
     font-family: "Qwitcher Grypen", cursive;
-    color: white;
 }
 
-.header_left>h1>span{
+.header_left > h1 > span {
     color: #BDA78D;
 }
 
-.header_right{
+/* RIGHT SECTION */
+.header_right {
     flex: 0.6;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+    gap: 12px;
+    flex-wrap: nowrap;
+    overflow: hidden; /* FIXED: no scrollbar */
     font-family: "Quicksand", sans-serif;
 }
 
-.header_right>a{
-    text-align: center;
-}
-
-.header_right>a>h4{
-    padding: 20px 0;
+/* NAV LINKS */
+.header_right > a > h4 {
+    padding: 10px 15px;
     cursor: pointer;
-    font-size: 18px;
-    transition: transform 200ms ease-in-out;
-    letter-spacing: 1px;
-}
-
-
-.header_right>a>h4:hover{
-    background-color: #BDA78D;
-    padding: 5px 20px;
+    font-size: 17px;
     border-radius: 10px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transform: scale(1.05);
-    color: black;
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-
-.header_right>button{
+.header_right > a > h4:hover {
     background-color: #BDA78D;
     color: black;
-    padding: 5px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    box-sizing: border-box;
-    transition: transform 200ms ease-in-out;
+    transform: scale(1.05); /* reduced scale */
 }
 
+/* BUTTONS */
+.header_right > button {
+    background-color: #BDA78D;
+    color: black;
+    padding: 6px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
 
-.header_right>button:hover{
+.header_right > button:hover {
     background-color: #866e52;
-    padding: 5px 20px;
-    border-radius: 10px;
-    letter-spacing: 1px;
-    cursor: pointer;
     transform: scale(1.05);
-    color: black;
 }
 
+/* USERNAME BADGE */
+.username-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #BDA78D;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .header_right {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        overflow: visible;
+    }
+
+    .header_right.open {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header_left > h1 {
+        font-size: 26px;
+    }
+
+    .header_right > a > h4 {
+        font-size: 15px;
+    }
+
+    .header_right > button {
+        width: 80%;
+    }
+
+    .username-badge {
+        width: 80%;
+        justify-content: center;
+    }
+}

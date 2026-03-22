@@ -1,22 +1,56 @@
-.footer{
-    background-color: #30211B;
-    padding: 20px;
-    display:flex;
-    flex-direction: column;
-   justify-content: center;
-   align-items: center;
+.footer {
+  background-color: #30211B;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.icons{
-    display:flex;
-    justify-content: space-between;
-    width: 250px;
- }
+.icons {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  flex-wrap: wrap; /* allows wrapping if needed */
+  gap: 15px; /* adds spacing between icons on smaller screens */
+}
 
- svg{
-   transition: transform 300ms ease-in-out;
- }
+svg {
+  transition: transform 300ms ease-in-out;
+}
 
- svg:hover{
-    transform: scale(1.05);
- }
+svg:hover {
+  transform: scale(1.05);
+}
+
+/* ---------------- Responsive Design ---------------- */
+
+/* Tablets */
+@media (max-width: 900px) {
+  .footer {
+    padding: 15px;
+  }
+
+  .icons {
+    width: 200px;
+    gap: 10px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  .footer {
+    padding: 15px;
+  }
+
+  .icons {
+    width: 80%;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}

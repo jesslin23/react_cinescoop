@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: black; /* Dark background to match the theme */
+  background-color: black;
   font-family: "Quicksand", sans-serif;
 }
 
@@ -14,7 +14,7 @@ h1 {
   font-size: 40px;
 }
 
-.blogList>h2{
+.blogList > h2 {
   font-family: "Qwitcher Grypen", cursive;
   color: #BDA78D;
   font-size: 40px;
@@ -28,10 +28,10 @@ h1 {
 }
 
 .blogList {
-  display: flex; 
-  flex-wrap: wrap; 
+  display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
-  width: 58%; 
+  width: 58%;
 }
 
 p {
@@ -51,17 +51,16 @@ p {
   font-family: "Quicksand", sans-serif;
 }
 
-
 .blogItem {
   background-color: #30211B;
   border-radius: 10px;
   margin-bottom: 20px;
-  margin-right: 10px; 
+  margin-right: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   max-width: calc(33% - 10px);
   text-align: center;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   margin-left: 15px;
 }
 
@@ -69,31 +68,31 @@ p {
   width: 100%;
   height: auto;
   border-top-left-radius: 10px;
-  border-top-right-radius: 10px; 
+  border-top-right-radius: 10px;
 }
 
 .blogItem h3 {
   font-size: 1.2rem;
   color: #fff;
-  margin: 10px 0 5px; /* Space around the title */
+  margin: 10px 0 5px;
 }
 
 .blogItem p {
   font-size: 0.9rem;
-  color: #ddd; /* Light text for readability */
-  margin: 5px 0; /* Space around the content */
+  color: #ddd;
+  margin: 5px 0;
 }
 
 .blogItem .genre {
-  font-weight: bold; /* Bold genre text */
+  font-weight: bold;
 }
 
-/* Adjustments for Add Blog section inputs */
-.addBlogSection>h2{
+.addBlogSection > h2 {
   font-family: "Qwitcher Grypen", cursive;
   color: #BDA78D;
   font-size: 40px;
 }
+
 .addBlogSection input,
 .addBlogSection textarea {
   width: 100%;
@@ -129,14 +128,14 @@ p {
   display: flex;
   font-family: "Quicksand", sans-serif;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.watchlisttitle>h2{
+.watchlisttitle > h2 {
   font-family: "Qwitcher Grypen", cursive;
   color: #BDA78D;
   font-size: 40px;
 }
-
 
 .watchlistItem {
   flex-direction: column;
@@ -152,9 +151,9 @@ p {
 }
 
 .watchlistItem img {
-  width: 100%; /* Full width for watchlist images */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 10px; /* Rounded corners for the image */
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .watchlistItem h3,
@@ -167,14 +166,14 @@ p {
 
 /* Add to Watchlist Button */
 .addToWatchlistBtn {
-  background-color: #BDA78D; /* Green background */
-  color: white; /* White text */
-  padding: 10px 15px; /* Some padding */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer on hover */
-  font-size: 16px; /* Font size */
-  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover */
+  background-color: #BDA78D;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 10px;
@@ -183,49 +182,144 @@ p {
 }
 
 .addToWatchlistBtn:hover {
-  background-color: #987d5d; /* Darker green on hover */
-  transform: scale(1.05); /* Slightly enlarge button on hover */
+  background-color: #987d5d;
+  transform: scale(1.05);
 }
 
 .addToWatchlistBtn:active {
-  transform: scale(0.95); /* Shrink button on click */
+  transform: scale(0.95);
 }
 
 /* Remove from Watchlist Button */
 .removeFromWatchlistBtn {
-  background-color: #BDA78D; /* Red background */
-  color: white; /* White text */
-  padding: 10px 15px; /* Some padding */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer on hover */
-  font-size: 16px; /* Font size */
-  transition: background-color 0.3s, transform; /* Smooth transition for hover */
+  background-color: #BDA78D;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
   font-weight: 600;
 }
 
 .removeFromWatchlistBtn:hover {
-  background-color: #987d5d; /* Darker red on hover */
+  background-color: #987d5d;
   transform: scale(1.05);
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
+/* ----------------------------- */
+/* ✅ RESPONSIVE ADJUSTMENTS BELOW */
+/* ----------------------------- */
+
+/* Tablet screens */
+@media (max-width: 1024px) {
   .blogPage {
-    flex-direction: column; /* Stack sections vertically on small screens */
+    flex-direction: column;
+    align-items: center;
   }
 
   .blogList,
   .addBlogSection {
-    width: 100%; /* Full width for both sections */
-  }
-
-  .addBlogSection {
-    margin-top: 20px; /* Add space above Add Blog section */
+    width: 90%;
   }
 
   .blogItem {
-    max-width: 100%; /* Full width for blog items on small screens */
-    margin-right: 0; /* Remove right margin */
+    max-width: 45%;
+  }
+
+  .watchlistItem {
+    width: 45%;
+  }
+
+  h1, 
+  .blogList > h2,
+  .addBlogSection > h2,
+  .watchlisttitle > h2 {
+    font-size: 32px;
+    padding: 30px;
+  }
+}
+
+/* Medium screens (large phones, small tablets) */
+@media (max-width: 768px) {
+  .blogList,
+  .addBlogSection {
+    width: 100%;
+  }
+
+  .blogItem {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+
+  .addBlogSection {
+    margin-top: 20px;
+  }
+
+  .watchlist {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .watchlistItem {
+    width: 80%;
+    margin-left: 0;
+  }
+
+  .addToWatchlistBtn,
+  .removeFromWatchlistBtn {
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  h1, 
+  .blogList > h2,
+  .addBlogSection > h2,
+  .watchlisttitle > h2 {
+    font-size: 26px;
+    padding: 20px;
+  }
+
+  .blogItem h3 {
+    font-size: 1rem;
+  }
+
+  .blogItem p {
+    font-size: 0.85rem;
+  }
+
+  .addBlogSection {
+    padding: 15px;
+  }
+
+  .addBlogSection input,
+  .addBlogSection textarea {
+    font-size: 0.9rem;
+  }
+
+  .addBlogSection button {
+    width: 100%;
+  }
+
+  .watchlistItem {
+    width: 90%;
+  }
+}
+
+/* Ultra-small screens (under 360px) */
+@media (max-width: 360px) {
+  .blogItem,
+  .watchlistItem {
+    width: 95%;
+  }
+
+  .addToWatchlistBtn,
+  .removeFromWatchlistBtn {
+    font-size: 14px;
+    padding: 8px;
   }
 }

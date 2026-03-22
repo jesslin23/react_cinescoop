@@ -3,132 +3,192 @@ import './BlogPage.css';
 import { Element } from 'react-scroll';
 
 const BlogPage = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [newBlog, setNewBlog] = useState({ title: '', content: '', genre: '', image: null });
-  const [watchlist, setWatchlist] = useState([]);
 
+  const [blogs, setBlogs] = useState([]);
+  const [watchlist, setWatchlist] = useState([]);
+  const [newBlog, setNewBlog] = useState({
+    title: '',
+    content: '',
+    genre: '',
+    image: null
+  });
+
+  const user = JSON.parse(localStorage.getItem("user")) || {};
+
+  // LOAD BLOGS
   useEffect(() => {
-    const storedBlogs = JSON.parse(localStorage.getItem('blogs')) || [];
-    const storedWatchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
-    setBlogs(storedBlogs);
-    setWatchlist(storedWatchlist);
+    fetch("http://localhost:8000/blogs")
+      .then(res => res.json())
+      .then(data => setBlogs(data));
   }, []);
 
+  // LOAD WATCHLIST (FIXED WARNING)
   useEffect(() => {
-    if (blogs.length > 0) {
-      localStorage.setItem('blogs', JSON.stringify(blogs));
+    if (user?.username) {
+      fetch(`http://localhost:8000/watchlist/${user.username}`)
+        .then(res => res.json())
+        .then(data => setWatchlist(data));
     }
-  }, [blogs]);
+  }, [user?.username]);
 
-  useEffect(() => {
-    if (watchlist.length > 0) {
-      localStorage.setItem('watchlist', JSON.stringify(watchlist));
-    }
-  }, [watchlist]);
+  // ADD BLOG
+  const addBlog = async () => {
 
-  const addBlog = () => {
-    if (newBlog.title && newBlog.content && newBlog.genre && newBlog.image) {
-      const updatedBlogs = [...blogs, newBlog];
-      setBlogs(updatedBlogs);
-      localStorage.setItem('blogs', JSON.stringify(updatedBlogs));  // Save to localStorage
-      setNewBlog({ title: '', content: '', genre: '', image: null });
-    }
+    if (!newBlog.title || !newBlog.content || !newBlog.genre) return;
+
+    await fetch("http://localhost:8000/blogs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        ...newBlog,
+        username: user.username
+      })
+    });
+
+    setNewBlog({ title: '', content: '', genre: '', image: null });
+
+    // reload blogs
+    fetch("http://localhost:8000/blogs")
+      .then(res => res.json())
+      .then(data => setBlogs(data));
   };
 
-  const addToWatchlist = (blog) => {
-    if (!watchlist.includes(blog)) {
-      const updatedWatchlist = [...watchlist, blog];
-      setWatchlist(updatedWatchlist);
-      localStorage.setItem('watchlist', JSON.stringify(updatedWatchlist));  // Save to localStorage
-    }
-  };
-
-  const removeFromWatchlist = (blog) => {
-    const updatedWatchlist = watchlist.filter((item) => item !== blog);
-    setWatchlist(updatedWatchlist);
-    localStorage.setItem('watchlist', JSON.stringify(updatedWatchlist));  // Save to localStorage
-  };
-
+  // IMAGE
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
+
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setNewBlog({ ...newBlog, image: reader.result });
+        setNewBlog(prev => ({ ...prev, image: reader.result }));
       };
       reader.readAsDataURL(file);
     }
   };
 
+  // ADD TO WATCHLIST
+  const addToWatchlist = async (blog) => {
+
+    await fetch(`http://localhost:8000/watchlist/${user.username}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(blog)
+    });
+
+    fetch(`http://localhost:8000/watchlist/${user.username}`)
+      .then(res => res.json())
+      .then(data => setWatchlist(data));
+  };
+
+  // REMOVE FROM WATCHLIST
+  const removeFromWatchlist = async (blog) => {
+
+    await fetch(`http://localhost:8000/watchlist/${user.username}/remove`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(blog)
+    });
+
+    fetch(`http://localhost:8000/watchlist/${user.username}`)
+      .then(res => res.json())
+      .then(data => setWatchlist(data));
+  };
+
   return (
     <Element className='blog' id='Blog'>
-      <div className='blog'>
-        <h1>Blogs</h1>
-        <div className="blogPage">
-          <div className="blogList">
-            <h2>View Blogs</h2>
-            {blogs.length === 0 ? (
-              <p>No blogs available</p>
-            ) : (
-              blogs.map((blog, index) => (
-                <div key={index} className="blogItem">
-                  {blog.image && <img src={blog.image} alt={blog.title} width="100" />}
-                  <h3>{blog.title}</h3>
-                  <p>{blog.content}</p>
-                  <p><strong>Genre:</strong> {blog.genre}</p>
-                  <button className="addToWatchlistBtn" onClick={() => addToWatchlist(blog)}>+ Watchlist</button>
-                </div>
-              ))
-            )}
-          </div>
 
-          <div className="addBlogSection">
-            <h2>Add a Blog</h2>
-            <input
-              type="text"
-              placeholder="Title"
-              value={newBlog.title}
-              onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
-            />
-            <textarea
-              placeholder="Content"
-              value={newBlog.content}
-              onChange={(e) => setNewBlog({ ...newBlog, content: e.target.value })}
-            ></textarea>
-            <input
-              type="text"
-              placeholder="Genre"
-              value={newBlog.genre}
-              onChange={(e) => setNewBlog({ ...newBlog, genre: e.target.value })}
-            />
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageUpload}
-            />
-            <button onClick={addBlog}>Add Blog</button>
-          </div>
-        </div>
+      <h1>Blogs</h1>
 
-        <div className="watchlisttitle">
-          <h2>Watchlist</h2>
-          </div>
-          <div className='watchlist'>
-          {watchlist.length === 0 ? (
-            <p>No blogs in the watchlist</p>
+      <div className="blogPage">
+
+        {/* BLOG LIST */}
+        <div className="blogList">
+
+          <h2>View Blogs</h2>
+
+          {blogs.length === 0 ? (
+            <p>No blogs available</p>
           ) : (
-            watchlist.map((blog, index) => (
-              <div key={index} className="watchlistItem">
-                {blog.image && <img src={blog.image} alt={blog.title} width="100" />}
+            blogs.map((blog, index) => (
+              <div key={index} className="blogItem">
+
+                {blog.image && <img src={blog.image} alt="" />}
+
+                <p><strong>Posted by:</strong> {blog.username}</p>
+
                 <h3>{blog.title}</h3>
                 <p>{blog.content}</p>
-                <p><strong>Genre:</strong> {blog.genre}</p>
-                <button className="removeFromWatchlistBtn" onClick={() => removeFromWatchlist(blog)}>Remove</button>
+                <p><strong>{blog.genre}</strong></p>
+
+                <button onClick={() => addToWatchlist(blog)}>
+                  + Watchlist
+                </button>
+
               </div>
             ))
           )}
+
         </div>
+
+        {/* ADD BLOG */}
+        <div className="addBlogSection">
+
+          <h2>Add Blog</h2>
+
+          <input
+            placeholder="Title"
+            value={newBlog.title}
+            onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
+          />
+
+          <textarea
+            placeholder="Content"
+            value={newBlog.content}
+            onChange={(e) => setNewBlog({ ...newBlog, content: e.target.value })}
+          />
+
+          <input
+            placeholder="Genre"
+            value={newBlog.genre}
+            onChange={(e) => setNewBlog({ ...newBlog, genre: e.target.value })}
+          />
+
+          <input type="file" onChange={handleImageUpload} />
+
+          <button onClick={addBlog}>Add Blog</button>
+
+        </div>
+
       </div>
+
+      {/* WATCHLIST */}
+      <h2>Watchlist</h2>
+
+      <div className="watchlist">
+
+        {watchlist.map((blog, index) => (
+          <div key={index} className="watchlistItem">
+
+            {blog.image && <img src={blog.image} alt="" />}
+
+            <h3>{blog.title}</h3>
+            <p>{blog.content}</p>
+
+            <button onClick={() => removeFromWatchlist(blog)}>
+              Remove
+            </button>
+
+          </div>
+        ))}
+
+      </div>
+
     </Element>
   );
 };
